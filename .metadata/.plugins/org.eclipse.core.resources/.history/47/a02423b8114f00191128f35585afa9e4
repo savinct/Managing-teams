@@ -1,0 +1,92 @@
+package table;
+
+public class User {
+	
+	private int id_USER;
+	private String foto;
+	private String name;
+	private String e_mail;
+	private String pass;
+	private String skills;
+	private String hobbies;
+	private String admin;
+	
+	public User(int id_USER, String foto, String name, String e_mail, String pass, String skills, String hobbies,
+			String admin) {
+		super();
+		this.id_USER = id_USER;
+		this.foto = foto;
+		this.name = name;
+		this.e_mail = e_mail;
+		this.pass = pass;
+		this.skills = skills;
+		this.hobbies = hobbies;
+		this.admin = admin;
+	}
+
+	public int getId_USER() {
+		return id_USER;
+	}
+
+	public void setId_USER(int id_USER) {
+		this.id_USER = id_USER;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getE_mail() {
+		return e_mail;
+	}
+
+	public void setE_mail(String e_mail) {
+		this.e_mail = e_mail;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+	public String getHobbies() {
+		return hobbies;
+	}
+
+	public void setHobbies(String hobbies) {
+		this.hobbies = hobbies;
+	}
+
+	public String getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
+	
+
+}

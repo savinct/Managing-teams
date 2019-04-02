@@ -1,0 +1,22 @@
+INDEX VERSION 1.131+D:\UTCN\AN 3\GitHub\Assignment_1\Assignment_1\.metadata\.plugins\org.eclipse.jdt.core
+3988866523.index
+3823437678.index
+2494401593.index
+665765992.index
+2051884769.index
+1069399176.index
+2059785805.index
+142444270.index
+3125725795.index
+1594905321.index
+865741978.index
+2147801284.index
+3966524131.index
+2748733375.index
+2198501998.index
+1857371720.index
+1312951780.index
+368682434.index
+1642650959.index
+3335751325.index
+4167802264.index

@@ -1,0 +1,26 @@
+package business;
+
+import java.util.List;
+
+import javax.swing.table.TableModel;
+
+import net.proteanit.sql.DbUtils;
+import table.Team;
+
+public class DaoTeam {
+	
+	private Team t;
+	
+	public DaoTeam() {
+		
+	}
+	
+	public List tableTeam() {
+		
+		t = new Team();
+		List list =  DbUtils.resultSetToNestedList(t.statementTeam());
+		
+		return list;
+	}
+
+}

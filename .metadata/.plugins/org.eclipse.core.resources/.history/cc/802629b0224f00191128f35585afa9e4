@@ -1,0 +1,111 @@
+package table;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import database.DBConnection;
+
+public class UserConnect {
+	
+	private String foto;
+	private String name;
+	private String e_mail;
+	private String pass;
+	private String skills;
+	private String hobbies;
+	private String vizibil;
+	
+	public  UserConnect(String e_mail, String pass) {
+		
+		Connection conn;
+		try {
+			conn = new DBConnection().getConnection();
+			Statement myStm = conn.createStatement();
+			
+			//ResultSet myRs = myStm.executeQuery("SELECT * FROM user where mail = 'savin@yahoo.com'");
+			ResultSet myRs = myStm.executeQuery("SELECT * FROM user");
+			
+			
+				//System.out.println(myRs.getString("name"));
+			
+				
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		/*
+		this.id_USER = id_USER;
+		this.foto = foto;
+		this.name = name;
+		this.e_mail = e_mail;
+		this.pass = pass;
+		this.skills = skills;
+		this.hobbies = hobbies;
+		this.vizibil = vizibil;*/
+		
+		//return true;
+	}
+	
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getE_mail() {
+		return e_mail;
+	}
+
+	public void setE_mail(String e_mail) {
+		this.e_mail = e_mail;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+	public String getHobbies() {
+		return hobbies;
+	}
+
+	public void setHobbies(String hobbies) {
+		this.hobbies = hobbies;
+	}
+
+	public String getAdmin() {
+		return vizibil;
+	}
+
+	public void setAdmin(String vizibil) {
+		this.vizibil = vizibil;
+	}
+	
+}

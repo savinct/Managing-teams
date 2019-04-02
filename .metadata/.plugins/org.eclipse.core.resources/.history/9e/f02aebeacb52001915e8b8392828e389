@@ -1,0 +1,26 @@
+package business;
+
+import javax.swing.table.TableModel;
+
+import net.proteanit.sql.DbUtils;
+import table.Project;
+import table.Team;
+
+public class DaoProject {
+	
+	private Project pj;
+	
+	
+	public DaoProject() {
+		
+	}
+	
+	public TableModel tableProject () {
+		
+		pj = new Project ();
+		TableModel list =  DbUtils.resultSetToTableModel(pj.statementProject());
+		
+		return list;
+	}
+	
+}

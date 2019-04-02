@@ -1,0 +1,17 @@
+package business;
+
+import table.User;
+
+public class DaoUser {
+	
+	private User user;
+	
+	public DaoUser() {
+		
+	}
+	
+	public void AddUser(String name, String mail, String pass, Boolean admin) {
+		
+	}
+	
+}

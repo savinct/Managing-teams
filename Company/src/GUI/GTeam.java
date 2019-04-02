@@ -1,0 +1,122 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableModel;
+
+import business.DaoProject;
+import business.DaoTeam;
+import database.DBConnection;
+import net.proteanit.sql.DbUtils;
+
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class GTeam extends JFrame {
+
+	private JPanel contentPane;
+	private JTable table;
+	private JTable table_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GTeam frame = new GTeam();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GTeam() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 767, 403);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewTeam = new JButton("New Project");
+		btnNewTeam.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				NProject n = new NProject();
+				n.setVisible(true);
+				
+			}
+		});
+		btnNewTeam.setBounds(586, 11, 138, 38);
+		contentPane.add(btnNewTeam);
+		
+		JButton btnAccepted = new JButton("Accepted");
+		btnAccepted.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				int i = table.getSelectedRow();
+				int id = Integer.parseInt(table.getValueAt(i, 0).toString());
+				new DaoTeam().UpTeam(id);
+				
+				JOptionPane.showMessageDialog(null, "The user has been added to the project!");
+				
+			}
+		});
+		btnAccepted.setBounds(22, 11, 138, 38);
+		contentPane.add(btnAccepted);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(10, 76, 327, 277);
+		contentPane.add(scrollPane_1);
+		
+		table = new JTable();
+		scrollPane_1.setViewportView(table);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(414, 76, 327, 277);
+		contentPane.add(scrollPane);
+		
+		table_1 = new JTable();
+		scrollPane.setViewportView(table_1);
+		
+		
+		table.setModel(new DaoTeam().tableTeam());
+		table_1.setModel(new DaoProject().tableProject());
+		
+		
+		
+		JButton btnRefresh = new JButton("REFRESH");
+		btnRefresh.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				table.setModel(new DaoTeam().tableTeam());
+				table_1.setModel(new DaoProject().tableProject());
+				
+			}
+		});
+		btnRefresh.setBounds(327, 19, 89, 23);
+		contentPane.add(btnRefresh);
+	}
+}

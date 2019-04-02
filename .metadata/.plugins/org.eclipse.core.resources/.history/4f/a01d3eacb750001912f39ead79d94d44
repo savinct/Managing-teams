@@ -1,0 +1,48 @@
+package database;
+
+import java.sql.DriverManager;
+
+import java.sql.Connection;
+
+public class DBConnection {
+	
+	private static DBConnection conn = null;
+	
+	private static String url = "jdbc:mysql://127.0.0.1:3306/company";
+	private static String username = "root";
+	private static String password = "";
+	
+	
+	private DBConnection() {
+		
+		try{
+			   Connection conn = DriverManager.getConnection(url, username, password);
+			   System.out.println("Connected");
+			   
+			  } catch(Exception e){System.out.println(e);}
+
+	}
+	
+	public DBConnection getDBConnection() {
+		
+		if(conn == null)
+			conn = new DBConnection();
+		
+		return conn;
+		
+	}
+	
+
+	private static Connection setConnection() throws Exception{
+		  try{
+
+		   Connection conn = DriverManager.getConnection(url, username, password);
+		   System.out.println("Connected");
+		   return conn;
+		   
+		  } catch(Exception e){System.out.println(e);}
+		  
+		  
+		  return null;
+	}
+}

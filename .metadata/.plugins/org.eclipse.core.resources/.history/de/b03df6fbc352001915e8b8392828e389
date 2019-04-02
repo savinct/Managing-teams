@@ -1,0 +1,38 @@
+package business;
+
+import table.User;
+
+public class DaoUser {
+	
+	private User user;
+	private static final String EMAIL_VALIDATION_REGEX = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+	
+	public DaoUser() {
+		
+	}
+	
+	public Boolean AddUser(String name, String mail, String pass, Boolean admin) {
+		
+		if(name.length() > 2 && mail.matches(EMAIL_VALIDATION_REGEX ) && pass.length() > 2) {
+			
+			int vizibil;
+			if(admin == true) {
+				vizibil = 1*100000 + 0 * 10000 + 1 * 1000 + 1 * 100;
+				
+				System.out.print(vizibil + " ");
+			}else {
+				vizibil = 0*100000 + 0 * 10000 + 1 * 1000 + 1 * 100;
+			}
+			byte[] b = null;
+			user = new User(b, name, mail, pass, "", "", vizibil);
+			user.AddUser();
+			
+			return true;
+			
+		}
+		
+		return false;
+		
+	}
+	
+}
